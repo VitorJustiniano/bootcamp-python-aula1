@@ -87,15 +87,94 @@ import math
 # #### Booleanos (`bool`)
 
 # 16. Escreva um programa que avalie duas expressões booleanas inseridas pelo usuário e retorne o resultado da operação AND entre elas.
+valor1 = True
+valor2 = False
+resultado = valor1 and valor2
+print("Resultado do AND lógico:", resultado)
 # 17. Crie um programa que receba dois valores booleanos do usuário e retorne o resultado da operação OR.
+valor1 = True
+valor2 = False
+resultado = valor1 or valor2
+print("Resultado do OR lógico:", resultado)
 # 18. Desenvolva um programa que peça ao usuário para inserir um valor booleano e, em seguida, inverta esse valor.
-# 19. Faça um programa que compare se dois números fornecidos pelo usuário são iguais.
-# 20. Escreva um programa que verifique se dois números fornecidos pelo usuário são diferentes.
+valor = bool(input("Digite um valor bool: "))
+resultado = not valor
+print("Resultado do NOT lógico:", resultado)
 
+# 19. Faça um programa que compare se dois números fornecidos pelo usuário são iguais.
+v1 = 5
+v2 = 5
+resultado = (v1 == v2)
+print("Resultado da igualdade:", resultado)
+
+# 20. Escreva um programa que verifique se dois números fornecidos pelo usuário são diferentes.
+v1 = 5
+v2 = 3
+resultado = (v1 != v2)
+print("Resultado da igualdade:", resultado)
 # #### try-except e if
 
 # 21: Conversor de Temperatura
+try:
+    celsius = float(input("Digite a temperatura em celsius: "))
+    farenheit = (celsius * 9/5) + 32
+    print(f"{celsius}é igual a {farenheit}F")
+except ValueError:
+    print("Por favor, digite um número válido para a temperatura.")
+
 # 22: Verificador de Palíndromo
+entrada = input("digite uma palavra: ")
+if isinstance(entrada, str):
+    formatado = entrada.replace(" ", "").lower()
+    if formatado == formatado[::-1]:
+        print("É um palíndromo.")
+    else:
+        print("Não é um palíndromo.")
+else:
+    print("Entrada inválida. Por favor, digite uma palavra ou frase.")
 # 23: Calculadora Simples
+try:
+    valor1 = float(input("digite o numero: "))
+    valor2 = float(input("digite o numero: "))
+    operador = input("Digite o operador (+, -, *, /): ")
+    if operador == "+":
+        resultado = valor1 + valor2
+    elif operador == "-":
+        resultado = valor1 - valor2
+    elif operador == "*":
+        resultado = valor1 * valor2
+    elif operador == "/":
+        resultado = valor1 / valor2
+    else:
+        print("Operador invalido ou divisao por zero")
+    print("resultado", resultado)
+except ValueError:
+    print("Erro: Entrada inválida. Certifique-se de inserir números.")
+    
 # 24: Classificador de Números
+try: 
+    numero = int(input("Digite um numero: "))
+    
+    if numero > 0:
+        print("positivo")
+    elif numero < 0:
+        print("negativo")
+    else :
+        print("zero")
+    if numero % 2 == 0:
+        print("par")
+    else:
+        print("impar")
+except ValueError:
+    print("Por favor, digite um número inteiro válido.")
+
 # 25: Conversão de Tipo com Validação
+entrada_lista = input("digite uma lista de numeros separados por virgula: ")
+numero_str = entrada_lista.split(",")
+numero_int = []
+try:
+    for num in numero_str:
+        numero_int.append(int(num.strip()))
+    print("lista de inteiros: ", numero_int)
+except ValueError:
+    print("Erro: certifique-se de que todos os elementos são números inteiros válidos.")
